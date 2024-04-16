@@ -1,12 +1,14 @@
-package automationexercise;
+package automationexercise.tests;
 
-import automationexercise.pages.LoginPage;
+import automationexercise.pages.*;
+import automationexercise.tests.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import automationexercise.pages.SignUpPage;
 
-public class SignUpFlowTest extends BaseTest{
+import static automationexercise.helper.EmailGenerator.getRandomEmail;
+
+public class SignUpFlowTest extends BaseTest {
 
     @Test
     public void verifySignUpInLoginPage(){
@@ -15,20 +17,25 @@ public class SignUpFlowTest extends BaseTest{
         SignUpPage signUpPage = new SignUpPage(driver);
         loginPage.openLoginPage();
         loginPage.fillNameInput("Nelly");
-        loginPage.fillEmail("nelly.petrosyan990@gmail.com"+ Math.random());
+        loginPage.fillEmail(getRandomEmail(10,true,false));
         loginPage.clickOnSignUpButton();
         softAssert.assertEquals(signUpPage.getFirstText(),"ENTER ACCOUNT INFORMATION");
         softAssert.assertAll();
     }
 
-    @Test
+    @Test(groups = "loggedInState")
     public void verifyLoginFromLoginPage(){
         SoftAssert softAssert = new SoftAssert();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openLoginPage();
-        loginPage.fillLoginEmailInput("nelly.petrosyan990@gmail.com");
-        loginPage.fillLoginPasswordInput("123456");
-        loginPage.clickOnLoginButton();
+        System.out.println("Some text");
+        softAssert.assertAll();
+
+
+    }
+
+    @Test
+    public void verifyLoginFromLoginPage1(){
+        SoftAssert softAssert = new SoftAssert();
+        System.out.println("Some text");
         softAssert.assertAll();
 
 
@@ -38,12 +45,12 @@ public class SignUpFlowTest extends BaseTest{
     public void verifyAccountCreation(){
         SoftAssert softAssert = new SoftAssert();
         LoginPage loginPage = new LoginPage(driver);
-        SignUpPage signUpPage = new SignUpPage(driver);
         loginPage.openLoginPage();
         loginPage.fillNameInput("Nelly");
-        loginPage.fillEmail("nelly.petrosyan990@gmail.com"+ Math.random());
+        loginPage.fillEmail(getRandomEmail(10,true,false));
         loginPage.clickOnSignUpButton();
 
+        SignUpPage signUpPage = new SignUpPage(driver);
         signUpPage.selectMRRadioButton();
         signUpPage.selectMRSRadioButton();
         signUpPage.fillInPasswordInput("123456");
@@ -63,9 +70,13 @@ public class SignUpFlowTest extends BaseTest{
         signUpPage.fillZipCodeInput("12345");
         signUpPage.fillMobileInput("094818502");
         signUpPage.clickOnCreateAccountButton();
-        softAssert.assertEquals(driver.findElement(By.cssSelector("h2>b")).getText(),"ACCOUNT CREATED!");
+        AccountCreatedPage accountCreatedPage = new AccountCreatedPage(driver);
+        softAssert.assertEquals(accountCreatedPage.getAccountCreatedText(),"ACCOUNT CREATED!");
         softAssert.assertAll();
 
     }
+
+
+
 
 }
