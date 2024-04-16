@@ -4,6 +4,8 @@ import automationexercise.pages.common.CommonPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static automationexercise.setup.ConfigurationManager.URL;
+
 public class LoginPage extends CommonPage {
     public LoginPage(WebDriver driver){
         super(driver);
@@ -40,7 +42,7 @@ public class LoginPage extends CommonPage {
     }
 
     public void openLoginPage(){
-        openPage("https://automationexercise.com/login");
+        openPage(URL + "login");
     }
 
 

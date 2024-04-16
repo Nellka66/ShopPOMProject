@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static automationexercise.helper.EmailGenerator.getRandomEmail;
+import static automationexercise.setup.ConfigurationManager.USERNAME;
 
 public class SignUpFlowTest extends BaseTest {
 
@@ -16,7 +17,7 @@ public class SignUpFlowTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         SignUpPage signUpPage = new SignUpPage(driver);
         loginPage.openLoginPage();
-        loginPage.fillNameInput("Nelly");
+        loginPage.fillNameInput(USERNAME);
         loginPage.fillEmail(getRandomEmail(10,true,false));
         loginPage.clickOnSignUpButton();
         softAssert.assertEquals(signUpPage.getFirstText(),"ENTER ACCOUNT INFORMATION");
