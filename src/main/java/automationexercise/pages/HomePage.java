@@ -10,11 +10,11 @@ public class HomePage extends CommonPage {
         super(driver);
     }
 
-    private final By logo = By.cssSelector(".logo>a>img");
+    private final By LOGO = By.cssSelector(".logo>a>img");
 
 
     public boolean isLogoDisplayed(){
-        return isElementDisplayed(logo,10);
+        return isElementDisplayed(LOGO,10);
     }
 
     public void openHomePage(){

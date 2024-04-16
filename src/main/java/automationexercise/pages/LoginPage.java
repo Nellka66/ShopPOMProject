@@ -10,33 +10,33 @@ public class LoginPage extends CommonPage {
     }
 
    /// Login form elements
-    private final By logInButton = By.cssSelector("button[data-qa='login-button']");
-    private final By loginFormEmailInput = By.cssSelector("input[data-qa='login-email']");
-    private final By loginFormPasswordInput = By.cssSelector("input[data-qa='login-password']");
-    private final By loginFormUpperText = By.cssSelector(".login-form>h2");
+    private final By LOGIN_BUTTON = By.cssSelector("button[data-qa='login-button']");
+    private final By LOGIN_FORM_EMAIL_INPUT = By.cssSelector("input[data-qa='login-email']");
+    private final By LOGIN_FORM_PASSWORD_INPUT = By.cssSelector("input[data-qa='login-password']");
+    private final By LOGIN_FORM_UPPER_TEXT = By.cssSelector(".login-form>h2");
 
-    private final By orText = By.cssSelector(".col-sm-1>h2");
+    private final By OR_TEXT = By.cssSelector(".col-sm-1>h2");
 
 
     ///Sign Up form elements
 
-    private final By signUpFormUpperText = By.cssSelector(".signup-form>h2");
-    private final By signUpName = By.cssSelector("input[data-qa='signup-name']");
-    private final By signUpEmail = By.cssSelector("input[data-qa='signup-email']");
-    private final By signUpButton = By.cssSelector("button[data-qa='signup-button']");
+    private final By SIGN_UP_FORM_UPPER_TEXT = By.cssSelector(".signup-form>h2");
+    private final By SIGN_UP_NAME = By.cssSelector("input[data-qa='signup-name']");
+    private final By SIGN_UP_EMAIL = By.cssSelector("input[data-qa='signup-email']");
+    private final By SIGN_UP_BUTTON = By.cssSelector("button[data-qa='signup-button']");
 
 
     // Sign up form methods
     public void fillNameInput(String name){
-        sendDataToInput(signUpName,name);
+        sendDataToInput(SIGN_UP_NAME,name);
     }
 
     public void fillEmail(String email){
-        sendDataToInput(signUpEmail,email);
+        sendDataToInput(SIGN_UP_EMAIL,email);
     }
 
     public void clickOnSignUpButton(){
-        clickOnElement(signUpButton);
+        clickOnElement(SIGN_UP_BUTTON);
     }
 
     public void openLoginPage(){
@@ -48,17 +48,17 @@ public class LoginPage extends CommonPage {
     /// Login form methods
 
     public void fillLoginEmailInput(String email){
-        sendDataToInput(loginFormEmailInput,email);
+        sendDataToInput(LOGIN_FORM_EMAIL_INPUT,email);
 
     }
 
     public void fillLoginPasswordInput(String password){
-        sendDataToInput(loginFormPasswordInput,password);
+        sendDataToInput(LOGIN_FORM_PASSWORD_INPUT,password);
 
     }
 
     public void clickOnLoginButton(){
-        clickOnElement(logInButton);
+        clickOnElement(LOGIN_BUTTON);
 
     }
 

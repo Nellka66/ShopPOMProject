@@ -33,9 +33,7 @@ public class ProductRelatedTests extends BaseTest {
 
         products.clickOnViewCardButton();
 
-
         CartPage cartPage = new CartPage(driver);
-        cartPage.openCartPage();
         softAssert.assertEquals(cartPage.getItemsQuantity(),2);
 
         softAssert.assertEquals(cartPage.getExactItemPrice(1),"Rs. 500","The first element price is wrong");

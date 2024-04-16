@@ -1,6 +1,5 @@
 package automationexercise.pages;
 
-import automationexercise.pages.common.BasePage;
 import automationexercise.pages.common.CommonPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,134 +10,134 @@ public class SignUpPage extends CommonPage {
     }
 
     // Account information section
-    private final By theFirstText = By.xpath("(//h2[@class='title text-center']/b)[1]");
+    private final By THE_FIRST_TEXT = By.xpath("(//h2[@class='title text-center']/b)[1]");
 
-    private final By genderMR = By.cssSelector("label[for=id_gender1]");
-    private final By genderMRS = By.cssSelector("label[for=id_gender2]");
-    private final By name = By.cssSelector("input[data-qa=name]");
-    private final By email = By.cssSelector("input[data-qa=email]");
-    private final By password = By.id("password");
-    private final By day = By.cssSelector("#days");
-    private final By month = By.cssSelector("#months");
-    private final By year = By.cssSelector("#years");
-    private final By newsletterCheckbox = By.cssSelector("label[for=newsletter]");
-    private final By specialOffersCheckbox = By.cssSelector("label[for=optin]");
+    private final By GENDER_MR = By.cssSelector("label[for=id_gender1]");
+    private final By GENDER_MRS = By.cssSelector("label[for=id_gender2]");
+    private final By NAME = By.cssSelector("input[data-qa=name]");
+    private final By EMAIL = By.cssSelector("input[data-qa=email]");
+    private final By PASSWORD = By.id("password");
+    private final By DAY = By.cssSelector("#days");
+    private final By MONTH = By.cssSelector("#months");
+    private final By YEAR = By.cssSelector("#years");
+    private final By NEWSLETTER_CHECKBOX = By.cssSelector("label[for=newsletter]");
+    private final By SPECIAL_OFFERS_CHECKBOX = By.cssSelector("label[for=optin]");
 
 
     // Address Information section
-    private final By addressInformationText = By.cssSelector("(//h2[@class='title text-center']/b)[2]");
+    private final By ADDRESS_INFORMATION_TEXT = By.cssSelector("(//h2[@class='title text-center']/b)[2]");
 
-    private final By firstName = By.id("first_name");
-    private final By lastName = By.id("last_name");
-    private final By company = By.id("company");
-    private final By address1 = By.id("address1");
-    private final By address2 = By.id("address2");
-    private final By countryDropdown = By.id("country");
-    private final By state = By.id("state");
-    private final By city = By.id("city");
-    private final By zipCode = By.id("zipcode");
-    private final By phoneNumber = By.id("mobile_number");
-    private final By createAccountButton = By.cssSelector("button[data-qa='create-account']");
+    private final By FIRST_NAME = By.id("first_name");
+    private final By LAST_NAME = By.id("last_name");
+    private final By COMPANY = By.id("company");
+    private final By ADDRESS_1 = By.id("address1");
+    private final By ADDRESS_2 = By.id("address2");
+    private final By COUNTRY_DROPDOWN = By.id("country");
+    private final By STATE = By.id("state");
+    private final By CITY = By.id("city");
+    private final By ZIP_CODE = By.id("zipcode");
+    private final By PHONE_NUMBER = By.id("mobile_number");
+    private final By CREATE_ACCOUNT_BUTTON = By.cssSelector("button[data-qa='create-account']");
 
 
     public void selectMRRadioButton(){
-        clickOnElement(genderMR);
+        clickOnElement(GENDER_MR);
 
     }
 
     public void selectMRSRadioButton(){
-        clickOnElement(genderMRS);
+        clickOnElement(GENDER_MRS);
 
     }
 
     public void fillInPasswordInput(String myPassword){
-        sendDataToInput(password,myPassword);
+        sendDataToInput(PASSWORD,myPassword);
 
     }
 
     public void selectFromDayDropdown(){
-        selectFromSelectDropdownByIndex(day, 14);
+        selectFromSelectDropdownByIndex(DAY, 14);
 
     }
 
     public void selectFromMonthDropdown(){
-        selectFromSelectDropdownByIndex(month, 5);
+        selectFromSelectDropdownByIndex(MONTH, 5);
 
     }
 
     public void selectFromYearDropdown(){
-        selectFromSelectDropdownByIndex(year, 10);
+        selectFromSelectDropdownByIndex(YEAR, 10);
 
     }
 
     public void checkNewsletterCheckbox(){
-        clickOnElement(newsletterCheckbox);
+        clickOnElement(NEWSLETTER_CHECKBOX);
 
     }
 
     public void checkSpecialOffersCheckbox(){
-        clickOnElement(specialOffersCheckbox);
+        clickOnElement(SPECIAL_OFFERS_CHECKBOX);
 
     }
 
     public void fillFirstNameInput(String name){
-        sendDataToInput(firstName,name);
+        sendDataToInput(FIRST_NAME,name);
 
     }
 
     public void fillLastNameInput(String myLastName){
-        sendDataToInput(lastName,myLastName);
+        sendDataToInput(LAST_NAME,myLastName);
 
     }
 
 
     public void fillCompanyInput(String myCompany){
-        sendDataToInput(company,myCompany);
+        sendDataToInput(COMPANY,myCompany);
 
     }
 
     public void fillFirstAddressInput(String myAddress){
-        sendDataToInput(address1,myAddress);
+        sendDataToInput(ADDRESS_1,myAddress);
 
     }
 
     public void fillSecondAddressInput(String myAddress){
-        sendDataToInput(address2,myAddress);
+        sendDataToInput(ADDRESS_2,myAddress);
 
     }
 
     public void selectFromCountryDropdown(){
-        selectFromSelectDropdownByIndex(countryDropdown,4);
+        selectFromSelectDropdownByIndex(COUNTRY_DROPDOWN,4);
 
     }
 
     public void fillStateInput(String myState){
-        sendDataToInput(state,myState);
+        sendDataToInput(STATE,myState);
 
     }
 
     public void fillCityInput(String myCity){
-        sendDataToInput(city,myCity);
+        sendDataToInput(CITY,myCity);
 
     }
 
     public void fillZipCodeInput(String myZip){
-        sendDataToInput(zipCode,myZip);
+        sendDataToInput(ZIP_CODE,myZip);
 
     }
 
     public void fillMobileInput(String myPhone){
-        sendDataToInput(phoneNumber,myPhone);
+        sendDataToInput(PHONE_NUMBER,myPhone);
 
     }
 
     public void clickOnCreateAccountButton(){
-        clickOnElement(createAccountButton);
+        clickOnElement(CREATE_ACCOUNT_BUTTON);
 
     }
 
     public String getFirstText(){
-       return getExistingElement(theFirstText,10).getText();
+       return getExistingElement(THE_FIRST_TEXT,10).getText();
 
     }
 

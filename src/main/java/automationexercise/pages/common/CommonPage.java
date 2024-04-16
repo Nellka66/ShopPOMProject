@@ -1,6 +1,5 @@
 package automationexercise.pages.common;
 
-import automationexercise.pages.common.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,16 +9,16 @@ public abstract class CommonPage extends BasePage {
     public CommonPage(WebDriver driver) {
         super(driver);
     }
-    // change the naming. should be all uppercase
-    private final By menuLoginSignupButton = By.cssSelector("a[href='/login']");
-    private final By menuProductsButton = By.cssSelector("a[href='/products']");
+
+    private final By MENU_LOGIN_SIGNUP_BUTTON = By.cssSelector("a[href='/login']");
+    private final By MENU_PRODUCTS_BUTTON = By.cssSelector("a[href='/products']");
 
     public void clickOnMenuLoginSignupButton() {
-        clickOnElement(menuLoginSignupButton);
+        clickOnElement(MENU_LOGIN_SIGNUP_BUTTON);
     }
 
     public void clickOnMenuProductsButton() {
-       clickOnElement(menuProductsButton);
+       clickOnElement(MENU_PRODUCTS_BUTTON);
     }
 
 
