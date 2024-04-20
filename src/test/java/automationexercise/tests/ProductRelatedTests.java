@@ -13,7 +13,7 @@ public class ProductRelatedTests extends BaseTest {
     @Test
     public void verifyProductAdditionToCard(){
         SoftAssert softAssert = new SoftAssert();
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.openHomePage();
         /// Verifying the logo is displayed or not
         softAssert.assertTrue(homePage.isLogoDisplayed(),"The Logo isn't displayed");
@@ -21,7 +21,7 @@ public class ProductRelatedTests extends BaseTest {
         homePage.clickOnMenuProductsButton();
 
 
-        ProductsPage products = new ProductsPage(driver);
+        ProductsPage products = new ProductsPage();
         products.scroll(400);
 
         products.addDesiredProductToCard(1);
@@ -33,7 +33,7 @@ public class ProductRelatedTests extends BaseTest {
 
         products.clickOnViewCardButton();
 
-        CartPage cartPage = new CartPage(driver);
+        CartPage cartPage = new CartPage();
         softAssert.assertEquals(cartPage.getItemsQuantity(),2);
 
         softAssert.assertEquals(cartPage.getExactItemPrice(1),"Rs. 500","The first element price is wrong");

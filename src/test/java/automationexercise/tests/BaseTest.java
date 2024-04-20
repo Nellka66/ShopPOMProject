@@ -10,20 +10,16 @@ import org.testng.annotations.Parameters;
 import static automationexercise.objects.UserMockData.getTestUser;
 
 public class BaseTest {
-    WebDriver driver;
-
     @Parameters({"browser"})
     @BeforeMethod
     public void openBrowser(@Optional("chrome") String browser) {
-        driver = SeleniumWebDriver.getWebDriver(browser);
-        driver.manage().window().maximize();
-
+        SeleniumWebDriver.setWebDriver(browser);
     }
 
     //   @Parameters({"email", "password"})
     @BeforeMethod(onlyForGroups = "loggedInState", dependsOnMethods = "openBrowser")
     public void loggedInStateSetUp() {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage();
         loginPage.fillLoginEmailInput(getTestUser().getEmail());
         loginPage.fillLoginPasswordInput(getTestUser().getPassword());

@@ -2,8 +2,9 @@ package automationexercise.pages.common;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
-public abstract class CommonPage extends BasePage {
+public abstract class CommonPage<T extends LoadableComponent<T>> extends BasePage<T> {
 
 
     public CommonPage(WebDriver driver) {

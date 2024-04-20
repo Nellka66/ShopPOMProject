@@ -4,10 +4,18 @@ import automationexercise.pages.common.CommonPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends CommonPage {
+import static automationexercise.setup.ConfigurationManager.URL;
+import static automationexercise.setup.SeleniumWebDriver.getWebDriver;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+public class HomePage extends CommonPage<HomePage> {
+
+    public HomePage() {
+        super(getWebDriver());
+    }
+
+    @Override
+    public HomePage init() {
+        return get();
     }
 
     private final By LOGO = By.cssSelector(".logo>a>img");
@@ -18,7 +26,16 @@ public class HomePage extends CommonPage {
     }
 
     public void openHomePage(){
-        openPage("https://automationexercise.com/");
+        openPage(URL);
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+    }
 }

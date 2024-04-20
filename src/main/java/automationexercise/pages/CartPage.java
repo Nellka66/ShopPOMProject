@@ -3,12 +3,30 @@ package automationexercise.pages;
 import automationexercise.pages.common.CommonPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
-public class CartPage extends CommonPage {
+import static automationexercise.setup.SeleniumWebDriver.getWebDriver;
+
+public class CartPage extends CommonPage<CartPage> {
 
 
-    public CartPage(WebDriver driver) {
-        super(driver);
+    public CartPage() {
+        super(getWebDriver());
+    }
+
+    @Override
+    public CartPage init() {
+        load();
+        return get();
+    }
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 
     private final By TABLE_ITEMS = By.cssSelector("tbody>tr");
@@ -29,11 +47,4 @@ public class CartPage extends CommonPage {
         openPage("https://automationexercise.com/view_cart");
 
     }
-
-
-
-
-
-
-
 }

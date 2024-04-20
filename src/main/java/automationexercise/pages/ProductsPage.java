@@ -4,9 +4,16 @@ import automationexercise.pages.common.CommonPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ProductsPage extends CommonPage {
-    public ProductsPage(WebDriver driver) {
-        super(driver);
+import static automationexercise.setup.SeleniumWebDriver.getWebDriver;
+
+public class ProductsPage extends CommonPage<ProductsPage> {
+    public ProductsPage() {
+        super(getWebDriver());
+    }
+
+    @Override
+    public ProductsPage init() {
+        return get();
     }
 
     private final By PRODUCTS_LIST = By.cssSelector(".single-products");
@@ -39,5 +46,13 @@ public class ProductsPage extends CommonPage {
     }
 
 
+    @Override
+    protected void load() {
 
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+    }
 }

@@ -14,8 +14,8 @@ public class SignUpFlowTest extends BaseTest {
     @Test
     public void verifySignUpInLoginPage(){
         SoftAssert softAssert = new SoftAssert();
-        LoginPage loginPage = new LoginPage(driver);
-        SignUpPage signUpPage = new SignUpPage(driver);
+        LoginPage loginPage = new LoginPage();
+        SignUpPage signUpPage = new SignUpPage();
         loginPage.openLoginPage();
         loginPage.fillNameInput(USERNAME);
         loginPage.fillEmail(getRandomEmail(10,true,false));
@@ -45,13 +45,13 @@ public class SignUpFlowTest extends BaseTest {
     @Test
     public void verifyAccountCreation(){
         SoftAssert softAssert = new SoftAssert();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openLoginPage();
+        LoginPage loginPage = new LoginPage().init();
+
         loginPage.fillNameInput("Nelly");
         loginPage.fillEmail(getRandomEmail(10,true,false));
         loginPage.clickOnSignUpButton();
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        SignUpPage signUpPage = new SignUpPage();
         signUpPage.selectMRRadioButton();
         signUpPage.selectMRSRadioButton();
         signUpPage.fillInPasswordInput("123456");
@@ -71,7 +71,7 @@ public class SignUpFlowTest extends BaseTest {
         signUpPage.fillZipCodeInput("12345");
         signUpPage.fillMobileInput("094818502");
         signUpPage.clickOnCreateAccountButton();
-        AccountCreatedPage accountCreatedPage = new AccountCreatedPage(driver);
+        AccountCreatedPage accountCreatedPage = new AccountCreatedPage().init();
         softAssert.assertEquals(accountCreatedPage.getAccountCreatedText(),"ACCOUNT CREATED!");
         softAssert.assertAll();
 
